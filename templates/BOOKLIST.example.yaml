@@ -1,0 +1,38 @@
+# Copy to <your>/corpus/BOOKLIST.yaml and edit.
+# Skill package does NOT include book texts. See docs/13-meta-skill.md.
+
+corpus_root: corpus
+defaults:
+  answer_language: zh
+  match:
+    script_fold: true
+    allow_query_rewrite: true
+
+books:
+  - book_id: on_practice
+    title: 实践论
+    title_en: On Practice
+    box: epistemology
+    language: zh
+    retrieval_language: zh
+    ingest_status: planned
+    license: "source-noted; personal research corpus"
+    source:
+      type: url_html
+      adapter: marxists_html
+      url: https://www.marxists.org/chinese/maozedong/marxist.org-chinese-mao-193707.htm
+    preferred_text: 实践论.txt
+
+  - book_id: sunzi
+    title: 孙子兵法
+    title_en: The Art of War
+    box: strategy
+    language: classical_zh
+    retrieval_language: zh
+    ingest_status: planned
+    license: "public-domain classical text via Wikisource"
+    source:
+      type: url_html
+      adapter: wikisource_html
+      url: https://zh.wikisource.org/zh-hans/%E5%AD%AB%E5%AD%90%E5%85%B5%E6%B3%95
+    preferred_text: 孙子兵法.txt

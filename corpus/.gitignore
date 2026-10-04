@@ -1,0 +1,4 @@
+raw/**/*.txt
+chunks/*.jsonl
+quotes/*.jsonl
+!.gitkeep

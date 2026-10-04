@@ -1,0 +1,23 @@
+{"id": "e01-practice", "query": "通过实践而发现真理", "expect": {"book_ids_any": ["on_practice"], "min_chunks": 1, "low_confidence": false, "text_contains_any": ["实践"]}}
+{"id": "e02-contradiction", "query": "怎样抓住主要矛盾", "expect": {"boxes_any": ["epistemology"], "book_ids_any": ["on_contradiction", "mao_selected_works"], "min_chunks": 1}}
+{"id": "e03-benben", "query": "没有调查就没有发言权", "expect": {"book_ids_any": ["mao_selected_works", "on_practice"], "min_chunks": 1, "text_contains_any": ["调查"]}}
+{"id": "e04-prince-loved", "query": "被人爱戴好还是让人畏惧好", "expect": {"book_ids_any": ["the_prince"], "min_chunks": 1, "retrieval_language_any": ["en"], "text_contains_any_ci": ["loved", "feared"]}}
+{"id": "e05-prince-rewrite", "query": "新领导空降如何站稳脚跟", "extra_queries": ["new principalities", "own arms"], "expect": {"book_ids_any": ["the_prince"], "min_chunks": 1, "retrieval_language_any": ["en"]}}
+{"id": "e06-sima-fold", "query": "司马光", "expect": {"book_ids_any": ["zizhi_tongjian"], "min_chunks": 1, "text_contains_any": ["司馬光"]}}
+{"id": "e07-chuanxi", "query": "知行合一如何事上磨炼", "expect": {"book_ids_any": ["chuanxilu"], "min_chunks": 1, "text_contains_any": ["知行"]}}
+{"id": "e08-sunzi", "query": "不战而屈人之兵", "expect": {"book_ids_any": ["sunzi"], "min_chunks": 1, "text_contains_any": ["不战"]}}
+{"id": "e09-ddj", "query": "上善若水", "expect": {"book_ids_any": ["dao_de_jing"], "min_chunks": 1, "text_contains_any": ["上善"]}}
+{"id": "e10-yantie", "query": "盐铁专营该不该罢", "expect": {"boxes_any": ["policy_debate"], "book_ids_any": ["yan_tie_lun"], "min_chunks": 1}}
+{"id": "e11-xiangyu", "query": "项羽为什么失败", "expect": {"book_ids_any": ["shiji"], "min_chunks": 1, "text_contains_any": ["项"]}}
+{"id": "e12-chibi", "query": "赤壁之战的进退", "extra_queries": ["赤壁"], "expect": {"book_ids_any": ["zizhi_tongjian", "shiji"], "min_chunks": 1}}
+{"id": "e13-meditations", "query": "哪些事情是我可控的情绪", "extra_queries": ["opinion", "obstacle", "mind"], "expect": {"book_ids_any": ["meditations"], "min_chunks": 1, "retrieval_language_any": ["en"]}}
+{"id": "e14-chijiu", "query": "论持久战的核心判断", "expect": {"book_ids_any": ["mao_selected_works"], "min_chunks": 1, "text_contains_any": ["持久"]}}
+{"id": "e15-liangzhi", "query": "致良知到底怎么用", "expect": {"book_ids_any": ["chuanxilu"], "min_chunks": 1, "text_contains_any": ["良知"]}}
+{"id": "v01-verify-pass-from-pack", "query": "通过实践而发现真理", "verify": {"mode": "first_chunk_prefix", "prefix_chars": 24}, "expect": {"verify_pass": true}}
+{"id": "v02-verify-fail-fake", "query": "通过实践而发现真理", "verify": {"mode": "fixed_quotes", "quotes": ["此句绝不存在于任何语料库XYZ999"]}, "expect": {"verify_pass": false}}
+{"id": "v03-verify-fail-simp-as-trad", "query": "司马光", "verify": {"mode": "fixed_quotes", "quotes": ["司马光撰"]}, "expect": {"verify_pass": false, "note": "简体不得当繁体原文过 Verifier"}}
+{"id": "r01-refuse-fake-volume", "query": "根据毛选第九十九卷量子恋爱篇怎么做决策", "expect": {"allow_low_or_no_mao99": true, "forbid_text_contains_any": ["第九十九卷", "量子恋爱"]}}
+{"id": "r02-modern-tech-gap", "query": "Transformer注意力机制在通鉴哪一卷", "expect": {"forbid_text_contains_any": ["Transformer", "注意力机制"], "min_chunks_max_ok": true}}
+{"id": "e16-boxes-history", "query": "功高震主该如何进退", "expect": {"boxes_any": ["history"], "book_ids_any": ["zizhi_tongjian", "shiji"], "min_chunks": 1}}
+{"id": "e17-prince-mercenaries", "query": "为什么不能靠外援雇佣军", "extra_queries": ["mercenaries", "auxiliaries"], "expect": {"book_ids_any": ["the_prince"], "retrieval_language_any": ["en"], "min_chunks": 1}}
+{"id": "e18-curated-boost", "query": "通过实践而发现真理，又通过实践而证实真理和发展真理。", "expect": {"book_ids_any": ["on_practice"], "min_chunks": 1, "text_contains_any": ["通过实践而发现真理"], "curated_boost_any": true}}

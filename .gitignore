@@ -1,0 +1,19 @@
+.DS_Store
+__pycache__/
+*.pyc
+.pack.json
+pack.json
+.answer.md
+
+.download_tmp/
+INGEST_SUMMARY.json
+
+# Book texts and chunks stay local (root .gitignore also covers corpus/).
+corpus/raw/**/*.txt
+corpus/chunks/*.jsonl
+corpus/quotes/curated.jsonl
+!corpus/raw/**/META.yaml
+!corpus/raw/**/README.md
+!corpus/chunks/README.md
+!corpus/quotes/README.md
+
