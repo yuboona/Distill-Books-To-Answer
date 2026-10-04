@@ -8,12 +8,10 @@ pack.json
 .download_tmp/
 INGEST_SUMMARY.json
 
-# Book texts and chunks stay local (root .gitignore also covers corpus/).
-corpus/raw/**/*.txt
-corpus/chunks/*.jsonl
-corpus/quotes/curated.jsonl
-!corpus/raw/**/META.yaml
-!corpus/raw/**/README.md
-!corpus/chunks/README.md
-!corpus/quotes/README.md
+# Local books stay on this machine. git add -A must not publish them.
+corpus/**
+!corpus/README.md
+!corpus/.gitignore
+!corpus/.gitkeep
+eval/counsel-logs/
 

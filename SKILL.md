@@ -13,8 +13,8 @@ description: >-
 用「事实—矛盾—实践」框架做判断；**论据只能来自已入库、已检索到的原文**。  
 本 skill 有两种模式：**BUILD（建库）** 与 **COUNSEL（答问）**。无 ready 语料时禁止假引典。
 
-工程真源：本 skill 包内 `scripts/` + `docs/`（语料正文**不在包内**）。  
-若工作区有 `05-shi-shi-qiu-shi/`，那是开发沙盒 + 默认实例库。
+工程真源就是本目录 `~/.cursor/skills/shi-shi-qiu-shi`（同时是 GitHub 仓库 `Distill-Books-To-Answer`）。  
+语料正文在同目录 `corpus/`，不进入 git。
 
 ## 何时启用
 
@@ -26,22 +26,18 @@ description: >-
 ## 启动时先判定模式
 
 ```text
-探测 corpus：
-  SSQS_CORPUS_ROOT → 工作区 05-shi-shi-qiu-shi/corpus → ./corpus → skill 内空骨架
-脚本：
-  工作区 05-shi-shi-qiu-shi/scripts（开发时）否则用本 skill 的 scripts/
+本目录即仓库：
+  ~/.cursor/skills/shi-shi-qiu-shi
+  scripts/ 与 docs/ 在这里维护
+  corpus/ 是本机语料，不提交
   ├─ 用户明确要求建库 / 无 ready 书 / 无 chunks → Mode BUILD
   └─ 有 chunks 且是人生/决策咨询 → Mode COUNSEL
 ```
 
 ```bash
 SKILL="$HOME/.cursor/skills/shi-shi-qiu-shi"
-if [ -d 05-shi-shi-qiu-shi/scripts ]; then SCRIPTS=05-shi-shi-qiu-shi/scripts
-elif [ -d "$SKILL/scripts" ]; then SCRIPTS="$SKILL/scripts"
-fi
+SCRIPTS="$SKILL/scripts"
 if [ -n "$SSQS_CORPUS_ROOT" ]; then CORPUS="$SSQS_CORPUS_ROOT"
-elif [ -d 05-shi-shi-qiu-shi/corpus ]; then CORPUS=05-shi-shi-qiu-shi/corpus
-elif [ -d corpus ]; then CORPUS=corpus
 else CORPUS="$SKILL/corpus"
 fi
 export SSQS_CORPUS_ROOT="$CORPUS"
